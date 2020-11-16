@@ -82,7 +82,7 @@ func (g *Galois) AESEncrypt(data []byte) ([]byte, error) {
 	//nonce := make([]byte, g.GCM.NonceSize())
 	//_, err := rand.Read(nonce)
 	nonce := bytes.Repeat([]byte{'0'},  g.GCM.NonceSize())
-	_, err :=  nonce 
+	_ :=  nonce 
 	if err != nil {
 		return nil, err
 	}
