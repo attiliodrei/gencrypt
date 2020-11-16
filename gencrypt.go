@@ -38,7 +38,6 @@ import (
 	"crypto/aes"
 	"crypto/cipher"
 	"bytes"
-	"io"
 )
 
 // Galois implements the cipher.AEAD interface type (Authenticated Encryption
