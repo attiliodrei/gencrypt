@@ -65,7 +65,7 @@ func NewGCM(key []byte) (*Galois, error) {
 	// Counter Mode).
 	g.GCM, err = cipher.NewGCM(block)
 	if err != nil {
-		return nil, err
+		return nil
 	}
 
 	// We return the Galois struct containing the GCM so that it can be used for
