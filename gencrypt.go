@@ -38,6 +38,7 @@ import (
 	"crypto/aes"
 	"crypto/cipher"
 	"bytes"
+	"io"
 )
 
 // Galois implements the cipher.AEAD interface type (Authenticated Encryption
@@ -82,7 +83,12 @@ func (g *Galois) AESEncrypt(data []byte) ([]byte, error) {
 	//nonce := make([]byte, g.GCM.NonceSize())
 	//_, err := rand.Read(nonce)
 	nonce := bytes.Repeat([]byte{'0'},  g.GCM.NonceSize())
-	_, err := nonce
+	r := bytes.NewReader(nil)
+	_, err := io.ReadFull(r, nonce)
+	if err != nil {
+		return nil,err
+	}
+
 	// gcm.Seal() returns a []byte containing the encrypted data. The nonce is
 	// used both as the dst []byte, which encrypted data is appended to, and to
 	// derive the initial GCM counter state (for more details see the
