@@ -37,6 +37,7 @@ package gencrypt
 import (
 	"crypto/aes"
 	"crypto/cipher"
+	"bytes"
 )
 
 // Galois implements the cipher.AEAD interface type (Authenticated Encryption
