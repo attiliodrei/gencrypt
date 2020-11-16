@@ -83,11 +83,11 @@ func (g *Galois) AESEncrypt(data []byte) ([]byte, error) {
 	//nonce := make([]byte, g.GCM.NonceSize())
 	//_, err := rand.Read(nonce)
 	nonce := bytes.Repeat([]byte{'0'},  g.GCM.NonceSize())
-	r := bytes.NewReader(nil)
-	_, err := io.ReadFull(r, nonce)
-	if err != nil {
-		return nil,err
-	}
+	//r := bytes.NewReader(nil)
+	//_, err := io.ReadFull(r, oldnonce)
+	//if err != nil {
+	//	return nil,err
+	//}
 
 	// gcm.Seal() returns a []byte containing the encrypted data. The nonce is
 	// used both as the dst []byte, which encrypted data is appended to, and to
