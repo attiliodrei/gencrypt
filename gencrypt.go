@@ -81,12 +81,11 @@ func (g *Galois) AESEncrypt(data []byte) ([]byte, error) {
 	// bytes to the slice, thus creating our nonce.
 	//nonce := make([]byte, g.GCM.NonceSize())
 	//_, err := rand.Read(nonce)
-	nonce,err := bytes.Repeat([]byte{'0'},  g.GCM.NonceSize())
-	if err != nil {
+	nonce := bytes.Repeat([]byte{'0'},  g.GCM.NonceSize())
+	 _, err := bytes.Read(nonce) 
+        if err != nil {
 		return nil, err
 	}
-	_ :=  nonce 
-	
 
 	// gcm.Seal() returns a []byte containing the encrypted data. The nonce is
 	// used both as the dst []byte, which encrypted data is appended to, and to
