@@ -37,7 +37,6 @@ package gencrypt
 import (
 	"crypto/aes"
 	"crypto/cipher"
-	"crypto/rand"
 )
 
 // Galois implements the cipher.AEAD interface type (Authenticated Encryption
@@ -79,8 +78,10 @@ func (g *Galois) AESEncrypt(data []byte) ([]byte, error) {
 	// We use the gcm.NonceSize() method to create a byte slice with the
 	// appropriate nonce length, then use the rand.Read() method to write random
 	// bytes to the slice, thus creating our nonce.
-	nonce := make([]byte, g.GCM.NonceSize())
-	_, err := bytes.Repeat([]byte{'0'}, nonce)
+	//nonce := make([]byte, g.GCM.NonceSize())
+	//_, err := rand.Read(nonce)
+	nonce := bytes.Repeat([]byte{'0'},  g.GCM.NonceSize())
+	_, err :=  nonce 
 	if err != nil {
 		return nil, err
 	}
