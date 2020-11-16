@@ -22,7 +22,7 @@ import (
 
 var (
   // Data you want to encrypt
-  data = []byte("test data")
+  data = []byte("/restreamer/footters_client/footters-27/restreamer/hls/UGE8b2g/")
   // Secret key. A 32-byte key is used to indicate AES-256. 16 and 24-byte keys
   // are accepted for AES-128 and AES-192 respectively, but are not
   // recommended.
