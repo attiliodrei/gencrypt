@@ -65,12 +65,12 @@ func NewGCM(key []byte) (*Galois, error) {
 	// Counter Mode).
 	g.GCM, err = cipher.NewGCM(block)
 	if err != nil {
-		return nil
+		return nil,err
 	}
 
 	// We return the Galois struct containing the GCM so that it can be used for
 	// encryption and decryption by the client.
-	return g, nil
+	return g, nil,err
 }
 
 // AESEncrypt is a method of the Galois struct which encrypts data using the
