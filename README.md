@@ -13,7 +13,7 @@ package main
 
 import (
   "fmt"
-
+  "github.com/btcsuite/btcutil/base58"
   "github.com/attiliodrei/gencrypt"
 )
 
@@ -34,10 +34,12 @@ func main() {
   gcm, _ := gencrypt.NewGCM(key)
 
   // Encrypt data
+  
   enc, _ := gcm.AESEncrypt(data)
-
+  b58enc := base58.Encode([]byte(enc))
+  fmt.Println(string(b58enc))
   // Decrypt data
-  dec, _ := gcm.AESDecrypt(enc)
+  dec, _ := gcm.AESDecrypt(base58.Decode(b58enc))
   fmt.Println(string(dec))
 }
 ```
