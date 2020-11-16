@@ -3,7 +3,7 @@ package main
 import (
   "fmt"
   "github.com/btcsuite/btcutil/base58"
-  "gitlab.com/hartsfield/gencrypt"
+  "github.com/attiliodrei/gencrypt"
 )
 
 // NOTE: Error checking not handled in this example but should be in
